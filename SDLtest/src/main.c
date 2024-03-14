@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
         fprintf(stderr, "Erreur de creation de la fenetre : %s\n", SDL_GetError());
     else
     {
-        SDL_Delay(500);
+        SDL_Delay(5000);
         SDL_DestroyWindow(window);
     }
     SDL_Quit();
