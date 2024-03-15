@@ -6,7 +6,7 @@ Programme : TestSDL.exe
 	$(CC) main.o -o Programme $(LDFLAGS)
 
 main.o : src/main.c
-	$(CC) $(CFLAGS) -c src/main.c -o main.o
+	$(CC) $(CFLAGS) -c src/*.c -o main.o
 
 # Suppression des fichiers temporaires.
 clean :
