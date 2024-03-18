@@ -1,18 +1,16 @@
 CC = gcc # Nom du compilateur
 CFLAGS = -Wall -I include # Options de compilation
-LDFLAGS = -L lib -lmingw32 -lSDL2main -lSDL2 # -mwindows # Options d'édition de liens
+LDFLAGS = -L lib -lSDL2main -lSDL2 -lmingw32 #-mwindows # Options d'édition de liens
 
-Programme : TestSDL.exe
-	$(CC) main.o -o Programme $(LDFLAGS)
+bin/TestSDL.exe : obj/main.o
+	$(CC) obj/main.o -o TestSDL.exe $(LDFLAGS)
 
-main.o : src/main.c
-	$(CC) $(CFLAGS) -c src/*.c -o main.o
+obj/main.o : src/*.c
+	$(CC) $(CFLAGS) -c src/*.c 
 
-# Suppression des fichiers temporaires.
-clean :
-	del -rf *.o
-
+# Suppression des fichiers objet
+clean:
+	rm -rf obj/*.o
 # Suppression de tous les fichiers, sauf les sources,
 # en vue d’une reconstruction complète.
-mrproper : clean
-	del Programme
+
